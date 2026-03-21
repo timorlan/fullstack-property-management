@@ -1,0 +1,49 @@
+[debug] [2026-03-02T14:52:01.883Z] ----------------------------------------------------------------------
+[debug] [2026-03-02T14:52:01.887Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\timor\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2026-03-02T14:52:01.887Z] CLI Version:   15.8.0
+[debug] [2026-03-02T14:52:01.887Z] Platform:      win32
+[debug] [2026-03-02T14:52:01.887Z] Node Version:  v20.14.0
+[debug] [2026-03-02T14:52:01.887Z] Time:          Mon Mar 02 2026 16:52:01 GMT+0200 (Israel Standard Time)
+[debug] [2026-03-02T14:52:01.888Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-02T14:52:07.235Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-02T14:52:07.236Z] > authorizing via signed-in user (lankriitay@gmail.com)
+[debug] [2026-03-02T14:52:07.237Z] [iam] checking project lankri-group-management for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-03-02T14:52:07.240Z] Checked if tokens are valid: true, expires at: 1772465824987
+[debug] [2026-03-02T14:52:07.240Z] Checked if tokens are valid: true, expires at: 1772465824987
+[debug] [2026-03-02T14:52:07.244Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/lankri-group-management:testIamPermissions [none]
+[debug] [2026-03-02T14:52:07.244Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/lankri-group-management:testIamPermissions  x-goog-user-project=lankri-group-management
+[debug] [2026-03-02T14:52:07.244Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/lankri-group-management:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-03-02T14:52:08.380Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/lankri-group-management:testIamPermissions 200
+[debug] [2026-03-02T14:52:08.381Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/lankri-group-management:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-03-02T14:52:08.382Z] Checked if tokens are valid: true, expires at: 1772465824987
+[debug] [2026-03-02T14:52:08.383Z] Checked if tokens are valid: true, expires at: 1772465824987
+[debug] [2026-03-02T14:52:08.383Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/lankri-group-management [none]
+[debug] [2026-03-02T14:52:08.748Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/lankri-group-management 200
+[debug] [2026-03-02T14:52:08.748Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/lankri-group-management {"projectId":"lankri-group-management","projectNumber":"909434156904","displayName":"lankri-group-management","name":"projects/lankri-group-management","resources":{"hostingSite":"lankri-group-management","realtimeDatabaseInstance":"lankri-group-management-default-rtdb"},"state":"ACTIVE","etag":"1_7e67e870-a1a0-447a-9fce-b7169a998c68"}
+[info] 
+[info] === Deploying to 'lankri-group-management'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-03-02T14:52:08.758Z] Checked if tokens are valid: true, expires at: 1772465824987
+[debug] [2026-03-02T14:52:08.759Z] Checked if tokens are valid: true, expires at: 1772465824987
+[debug] [2026-03-02T14:52:08.759Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/lankri-group-management/versions [none]
+[debug] [2026-03-02T14:52:08.759Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/lankri-group-management/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-03-02T14:52:10.954Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/lankri-group-management/versions 200
+[debug] [2026-03-02T14:52:10.955Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/lankri-group-management/versions {"name":"projects/909434156904/sites/lankri-group-management/versions/319060566cb05963","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[lankri-group-management]: beginning deploy... 
+[info] i  hosting[lankri-group-management]: found 293452 files in . 
+[debug] [2026-03-02T14:53:13.469Z] [hosting] uploading with 200 concurrency
+[debug] [2026-03-02T14:53:13.471Z] [hosting] hash cache [] not populated
+[debug] [2026-03-02T14:53:13.562Z] Error: EBUSY: resource busy or locked, open 'C:\Users\timor\ntuser.dat.LOG2'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-03-02T14:53:13.565Z] Error: EBUSY: resource busy or locked, open 'C:\Users\timor\ntuser.dat.LOG1'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-03-02T14:53:13.566Z] Error: EBUSY: resource busy or locked, open 'C:\Users\timor\NTUSER.DAT'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-03-02T14:53:13.583Z] Error: EISDIR: illegal operation on a directory, read
+[error] 
+[error] Error: An unexpected error has occurred.
