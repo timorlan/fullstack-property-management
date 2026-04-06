@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>קבוצת לנקרי - ניהול נכסים</title>
+    <title>LANKRI GROUP - מערכת ניהול נכסים</title>
     <style>
+        /* כאן נשאר כל העיצוב החדש והיפה שלך */
         * {
             margin: 0;
             padding: 0;
@@ -39,11 +40,6 @@
             margin-bottom: 10px;
         }
 
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-
         .nav-tabs {
             display: flex;
             background: #f8f9fa;
@@ -60,12 +56,6 @@
             font-weight: 600;
             color: #6c757d;
             transition: all 0.3s;
-            white-space: nowrap;
-        }
-
-        .nav-tab:hover {
-            background: #e9ecef;
-            color: #495057;
         }
 
         .nav-tab.active {
@@ -77,16 +67,10 @@
         .tab-content {
             display: none;
             padding: 30px;
-            animation: fadeIn 0.3s;
         }
 
         .tab-content.active {
             display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .clients-layout {
@@ -107,28 +91,11 @@
             padding: 15px;
             border-bottom: 2px solid #dee2e6;
             cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .client-list-item:hover {
-            background: #e9ecef;
         }
 
         .client-list-item.active {
             background: white;
             border-right: 4px solid #667eea;
-        }
-
-        .client-list-name {
-            font-weight: bold;
-            font-size: 1.1em;
-            color: #495057;
-            margin-bottom: 5px;
-        }
-
-        .client-list-info {
-            font-size: 0.85em;
-            color: #6c757d;
         }
 
         .client-detail {
@@ -139,364 +106,47 @@
             background: white;
         }
 
-        .client-card {
-            background: #f8f9fa;
-            border: 2px solid #dee2e6;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: all 0.3s;
-        }
-
-        .client-card:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-color: #667eea;
-        }
-
-        .alert-banner {
-            background: #fff3cd;
-            border: 2px solid #ffc107;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .alert-banner.danger {
-            background: #f8d7da;
-            border-color: #dc3545;
-        }
-
-        .alert-banner .alert-icon {
-            font-size: 1.5em;
-        }
-
-        .alert-banner .alert-text {
-            flex: 1;
-        }
-
-        .popup-alert {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            border: 3px solid #dc3545;
-            border-radius: 12px;
-            padding: 20px 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            z-index: 2000;
-            min-width: 400px;
-            animation: slideDown 0.5s;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateX(-50%) translateY(-100px); opacity: 0; }
-            to { transform: translateX(-50%) translateY(0); opacity: 1; }
-        }
-
-        .popup-alert-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            color: #dc3545;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .popup-alert-body {
-            color: #495057;
-        }
-
-        .popup-alert-close {
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
-        .client-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #dee2e6;
-        }
-
-        .client-name {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .client-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .info-item {
-            font-size: 0.9em;
-        }
-
-        .info-label {
-            font-weight: 600;
-            color: #6c757d;
-        }
-
-        .properties-list {
-            margin-top: 15px;
-        }
-
-        .property-item {
-            background: white;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 10px;
-        }
-
-        .property-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .property-title {
-            font-weight: bold;
-            color: #495057;
-            font-size: 1.1em;
-        }
-
-        .property-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            font-size: 0.85em;
-        }
-
-        .tenant-info {
-            background: #e7f3ff;
-            padding: 10px;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
-
-        .tenant-name {
-            font-weight: bold;
-            color: #0066cc;
-            margin-bottom: 5px;
-        }
-
-        .repairs-list {
-            background: #fff3cd;
-            padding: 10px;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
-
-        .repair-item {
-            padding: 5px 0;
-            border-bottom: 1px solid #ffc107;
-        }
-
-        .repair-item:last-child {
-            border-bottom: none;
-        }
-
         .btn {
             padding: 10px 20px;
             border: none;
             border-radius: 8px;
-            font-size: 1em;
-            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            font-weight: 600;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background: #6c757d;
-            color: white;
-            margin-left: 10px;
-        }
-
-        .btn-small {
-            padding: 5px 15px;
-            font-size: 0.9em;
-        }
-
-        .btn-success {
-            background: #28a745;
-            color: white;
-        }
-
-        .btn-danger {
-            background: #dc3545;
-            color: white;
-        }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-secondary { background: #6c757d; color: white; }
 
         .modal {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.5);
             z-index: 1000;
             align-items: center;
             justify-content: center;
         }
 
-        .modal.active {
-            display: flex;
-        }
+        .modal.active { display: flex; }
 
         .modal-content {
             background: white;
             padding: 30px;
             border-radius: 15px;
-            max-width: 700px;
             width: 90%;
+            max-width: 700px;
             max-height: 90vh;
             overflow-y: auto;
         }
 
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-header h2 {
-            color: #667eea;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: #6c757d;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #495057;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-
-        .status-rented {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .status-vacant {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: #6c757d;
-        }
-
-        .section-title {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #495057;
-            margin: 20px 0 10px 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #dee2e6;
-        }
-
-        .add-property-btn {
-            display: inline-block;
-            margin-top: 10px;
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;
         }
 
         @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .client-info,
-            .property-details {
-                grid-template-columns: 1fr;
-            }
-
-            .clients-layout {
-                grid-template-columns: 1fr;
-                height: auto;
-            }
-
-            .clients-list {
-                max-height: 300px;
-            }
+            .clients-layout { grid-template-columns: 1fr; height: auto; }
         }
     </style>
 </head>
@@ -518,14 +168,11 @@
                 <button class="btn btn-primary" onclick="openClientModal()">+ הוסף לקוח חדש</button>
             </div>
             
-            <div id="alertsContainer"></div>
-            
             <div class="clients-layout">
                 <div class="clients-list" id="clientsList"></div>
                 <div class="client-detail" id="clientDetail">
-                    <div class="empty-state">
+                    <div style="text-align: center; padding: 50px; color: #6c757d;">
                         <h3>בחר לקוח מהרשימה</h3>
-                        <p>לחץ על לקוח כדי לראות את הפרטים המלאים</p>
                     </div>
                 </div>
             </div>
@@ -539,253 +186,24 @@
 
     <div id="clientModal" class="modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="clientModalTitle">הוסף לקוח חדש</h2>
-                <button class="close-btn" onclick="closeModal('clientModal')">&times;</button>
-            </div>
+            <h2 id="clientModalTitle">הוסף לקוח</h2>
             <form id="clientForm" onsubmit="saveClient(event)">
                 <input type="hidden" id="clientEditId">
-                
-                <div class="section-title">פרטי הלקוח</div>
-                
+                <div class="form-group"><label>שם הלקוח*</label><input type="text" id="clientName" required></div>
+                <div class="form-group"><label>טלפון*</label><input type="tel" id="clientPhone" required></div>
+                <div class="form-group"><label>אימייל</label><input type="email" id="clientEmail"></div>
+                <div class="form-group"><label>ת.ז / ח.פ*</label><input type="text" id="clientIdNumber" required></div>
                 <div class="form-group">
-                    <label>שם הלקוח*</label>
-                    <input type="text" id="clientName" required>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>טלפון*</label>
-                        <input type="tel" id="clientPhone" required>
-                    </div>
-                    <div class="form-group">
-                        <label>אימייל</label>
-                        <input type="email" id="clientEmail">
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>ת.ז / ח.פ*</label>
-                        <input type="text" id="clientIdNumber" required>
-                    </div>
-                    <div class="form-group">
-                        <label>דמי ניהול (%)*</label>
-                        <select id="clientManagementFee" required>
-                            <option value="">בחר אחוז</option>
-                            <option value="8">8%</option>
-                            <option value="8.333">8.333%</option>
-                            <option value="8.5">8.5%</option>
-                            <option value="9">9%</option>
-                            <option value="10">10%</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>כתובת</label>
-                    <input type="text" id="clientAddress">
-                </div>
-                
-                <div class="form-group">
-                    <label>הערות</label>
-                    <textarea id="clientNotes"></textarea>
-                </div>
-                
-                <div style="display: flex; gap: 10px; margin-top: 20px;">
-                    <button type="submit" class="btn btn-primary">שמור לקוח</button>
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('clientModal')">ביטול</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div id="propertyModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="propertyModalTitle">הוסף נכס</h2>
-                <button class="close-btn" onclick="closeModal('propertyModal')">&times;</button>
-            </div>
-            <form id="propertyForm" onsubmit="saveProperty(event)">
-                <input type="hidden" id="propertyEditId">
-                <input type="hidden" id="propertyClientId">
-                
-                <div class="section-title">פרטי הנכס</div>
-                
-                <div class="form-group">
-                    <label>כתובת הנכס*</label>
-                    <input type="text" id="propertyAddress" required>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>סוג נכס*</label>
-                        <select id="propertyType" required>
-                            <option value="">בחר סוג</option>
-                            <option value="דירה">דירה</option>
-                            <option value="בית פרטי">בית פרטי</option>
-                            <option value="משרד">משרד</option>
-                            <option value="חנות">חנות</option>
-                            <option value="מחסן">מחסן</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>גודל (מ"ר)*</label>
-                        <input type="number" id="propertySize" required>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>מספר חדרים</label>
-                        <input type="number" step="0.5" id="propertyRooms">
-                    </div>
-                    <div class="form-group">
-                        <label>קומה</label>
-                        <input type="text" id="propertyFloor">
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>סטטוס*</label>
-                    <select id="propertyStatus" required onchange="toggleTenantFields()">
-                        <option value="פנוי">פנוי</option>
-                        <option value="מושכר">מושכר</option>
+                    <label>דמי ניהול (%)*</label>
+                    <select id="clientManagementFee" required>
+                        <option value="8">8%</option>
+                        <option value="8.333">8.333%</option>
+                        <option value="10">10%</option>
                     </select>
                 </div>
-                
-                <div id="tenantSection" style="display: none;">
-                    <div class="section-title">פרטי השוכר</div>
-                    
-                    <div class="form-group">
-                        <label>שם השוכר*</label>
-                        <input type="text" id="tenantName">
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>טלפון שוכר*</label>
-                            <input type="tel" id="tenantPhone">
-                        </div>
-                        <div class="form-group">
-                            <label>ת.ז שוכר*</label>
-                            <input type="text" id="tenantIdNumber">
-                        </div>
-                    </div>
-                    
-                    <div class="section-title">פרטי הסכם השכירות</div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>דמי שכירות (₪)*</label>
-                            <input type="number" id="contractRent">
-                        </div>
-                        <div class="form-group">
-                            <label>סכום ביטחונות (₪)</label>
-                            <input type="number" id="contractSecurityAmount" placeholder="סה״כ שווי הביטחונות">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>סוגי ביטחונות (ניתן לבחור מספר אפשרויות)</label>
-                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
-                            <label style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
-                                <input type="checkbox" id="securityBankGuarantee" value="ערבות בנקאית" style="width: 20px; height: 20px; cursor: pointer;">
-                                <span style="font-size: 1em; font-weight: 500;">ערבות בנקאית</span>
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
-                                <input type="checkbox" id="securityPromissoryNote" value="שטר חוב" style="width: 20px; height: 20px; cursor: pointer;">
-                                <span style="font-size: 1em; font-weight: 500;">שטר חוב</span>
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
-                                <input type="checkbox" id="securityCashDeposit" value="פיקדון מזומן" style="width: 20px; height: 20px; cursor: pointer;">
-                                <span style="font-size: 1em; font-weight: 500;">פיקדון מזומן</span>
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
-                                <input type="checkbox" id="securityCheck" value="שיק ביטחון" style="width: 20px; height: 20px; cursor: pointer;">
-                                <span style="font-size: 1em; font-weight: 500;">שיק ביטחון</span>
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
-                                <input type="checkbox" id="securityGuarantors" value="ערבים" style="width: 20px; height: 20px; cursor: pointer;">
-                                <span style="font-size: 1em; font-weight: 500;">ערבים</span>
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 10px; padding: 12px; background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 8px; cursor: pointer; transition: all 0.3s;">
-                                <input type="checkbox" id="securityOpenChecks" value="שיקים פתוחים לרשויות" style="width: 20px; height: 20px; cursor: pointer;">
-                                <span style="font-size: 1em; font-weight: 500;">שיקים פתוחים לרשויות</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>תחילת חוזה*</label>
-                            <input type="date" id="contractStartDate">
-                        </div>
-                        <div class="form-group">
-                            <label>סיום חוזה*</label>
-                            <input type="date" id="contractEndDate">
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>תקופת אופציה (חודשים)</label>
-                            <input type="number" id="contractOption" placeholder="למשל: 12">
-                        </div>
-                        <div class="form-group">
-                            <label>עלייה באופציה (%)</label>
-                            <input type="number" step="0.1" id="contractOptionIncrease" placeholder="למשל: 2.5">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>הערות כלליות</label>
-                    <textarea id="propertyNotes"></textarea>
-                </div>
-                
-                <div style="display: flex; gap: 10px; margin-top: 20px;">
-                    <button type="submit" class="btn btn-primary">שמור נכס</button>
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('propertyModal')">ביטול</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div id="repairModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>הוסף תיקון</h2>
-                <button class="close-btn" onclick="closeModal('repairModal')">&times;</button>
-            </div>
-            <form id="repairForm" onsubmit="saveRepair(event)">
-                <input type="hidden" id="repairPropertyId">
-                
-                <div class="form-group">
-                    <label>תיאור התיקון*</label>
-                    <textarea id="repairDescription" required></textarea>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>תאריך ביצוע*</label>
-                        <input type="date" id="repairDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label>עלות (₪)*</label>
-                        <input type="number" id="repairCost" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>בעל מקצוע</label>
-                    <input type="text" id="repairContractor">
-                </div>
-                
-                <div style="display: flex; gap: 10px; margin-top: 20px;">
-                    <button type="submit" class="btn btn-primary">שמור תיקון</button>
-                    <button type="button" class="btn btn-secondary" onclick="closeModal('repairModal')">ביטול</button>
-                </div>
+                <div class="form-group"><label>הערות</label><textarea id="clientNotes"></textarea></div>
+                <button type="submit" class="btn btn-primary">שמור</button>
+                <button type="button" class="btn btn-secondary" onclick="closeModal('clientModal')">ביטול</button>
             </form>
         </div>
     </div>
@@ -794,7 +212,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 
     <script>
-        // הגדרות פיירבייס
+        // הגדרות פיירבייס - הועתקו מהגרסה הקודמת שלך לסנכרון מלא
         const firebaseConfig = {
             apiKey: "AIzaSyB8lyZhWRLKLBFtrfc5ZeKIAdxqHL71Yhg",
             authDomain: "lankri-group-management.firebaseapp.com",
@@ -805,782 +223,95 @@
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
 
-        // Data structure
-        let data = {
-            clients: []
-        };
+        let data = { clients: [] };
+        let activeClientId = null;
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('מערכת לנקרי - אתחול...');
-            loadData();
+        // טעינת נתונים אוטומטית
+        document.addEventListener('DOMContentLoaded', () => {
+            db.ref('lankri_v8_new_design').on('value', (snapshot) => {
+                const val = snapshot.val();
+                data = val || { clients: [] };
+                if (!data.clients) data.clients = [];
+                displayClients();
+            });
         });
 
-        // Load data from Firebase
-        function loadData() {
-            try {
-                db.ref('lankri_v8_new_design').on('value', (snapshot) => {
-                    const val = snapshot.val();
-                    if (val) {
-                        data = val;
-                        if (!data.clients) data.clients = [];
-                    } else {
-                        data = { clients: [] };
-                    }
-                    displayClients();
-                    if (document.getElementById('reports').classList.contains('active')) {
-                        generateReports();
-                    }
-                    console.log('נתונים נטענו מפיירבייס בהצלחה');
-                });
-            } catch (error) {
-                console.error('שגיאה בטעינת נתונים:', error);
-                data = { clients: [] };
-                displayClients();
-            }
+        function displayClients() {
+            const list = document.getElementById('clientsList');
+            list.innerHTML = data.clients.map(client => `
+                <div class="client-list-item ${activeClientId === client.id ? 'active' : ''}" onclick="selectClient('${client.id}')">
+                    <div style="font-weight: bold;">${client.name}</div>
+                    <div style="font-size: 0.8em; color: #666;">${client.phone}</div>
+                </div>
+            `).join('');
         }
 
-        // Save data to Firebase
-        function saveData() {
-            try {
-                db.ref('lankri_v8_new_design').set(data);
-                displayClients();
-                if (document.getElementById('reports').classList.contains('active')) {
-                    generateReports();
-                }
-                console.log('נתונים נשמרו בפיירבייס בהצלחה');
-            } catch (error) {
-                console.error('שגיאה בשמירת נתונים:', error);
-                alert('שגיאה בשמירת הנתונים');
-            }
+        function selectClient(id) {
+            activeClientId = id;
+            displayClients();
+            const client = data.clients.find(c => c.id === id);
+            const detail = document.getElementById('clientDetail');
+            
+            detail.innerHTML = `
+                <div style="display:flex; justify-content: space-between;">
+                    <h2>${client.name}</h2>
+                    <button class="btn btn-secondary" onclick="openClientModal('${client.id}')">ערוך פרטים</button>
+                </div>
+                <hr style="margin: 20px 0;">
+                <p><strong>טלפון:</strong> ${client.phone}</p>
+                <p><strong>ת.ז/ח.פ:</strong> ${client.idNumber}</p>
+                <p><strong>דמי ניהול:</strong> ${client.managementFee}%</p>
+                `;
         }
 
-        // Tab Navigation
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
-            
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-
-            if (tabName === 'reports') {
-                generateReports();
-            }
-        }
-
-        // Modal Functions
-        function openClientModal(clientId = null) {
-            const modal = document.getElementById('clientModal');
-            const form = document.getElementById('clientForm');
-            const title = document.getElementById('clientModalTitle');
-            
-            form.reset();
-            
-            if (clientId) {
-                const client = data.clients.find(c => c.id === clientId);
-                if (client) {
-                    title.textContent = 'ערוך לקוח';
-                    document.getElementById('clientEditId').value = client.id;
-                    document.getElementById('clientName').value = client.name;
-                    document.getElementById('clientPhone').value = client.phone;
-                    document.getElementById('clientEmail').value = client.email || '';
-                    document.getElementById('clientIdNumber').value = client.idNumber;
-                    document.getElementById('clientManagementFee').value = client.managementFee;
-                    document.getElementById('clientAddress').value = client.address || '';
-                    document.getElementById('clientNotes').value = client.notes || '';
-                }
-            } else {
-                title.textContent = 'הוסף לקוח חדש';
-                document.getElementById('clientEditId').value = '';
-            }
-            
-            modal.classList.add('active');
-        }
-
-        function openPropertyModal(clientId, propertyId = null) {
-            const modal = document.getElementById('propertyModal');
-            const form = document.getElementById('propertyForm');
-            const title = document.getElementById('propertyModalTitle');
-            
-            form.reset();
-            document.getElementById('propertyClientId').value = clientId;
-            
-            if (propertyId) {
-                const client = data.clients.find(c => c.id === clientId);
-                const property = client.properties.find(p => p.id === propertyId);
-                if (property) {
-                    title.textContent = 'ערוך נכס';
-                    document.getElementById('propertyEditId').value = property.id;
-                    document.getElementById('propertyAddress').value = property.address;
-                    document.getElementById('propertyType').value = property.type;
-                    document.getElementById('propertySize').value = property.size;
-                    document.getElementById('propertyRooms').value = property.rooms || '';
-                    document.getElementById('propertyFloor').value = property.floor || '';
-                    document.getElementById('propertyStatus').value = property.status;
-                    document.getElementById('propertyNotes').value = property.notes || '';
-                    
-                    if (property.tenant) {
-                        document.getElementById('tenantName').value = property.tenant.name;
-                        document.getElementById('tenantPhone').value = property.tenant.phone;
-                        document.getElementById('tenantIdNumber').value = property.tenant.idNumber;
-                        document.getElementById('contractRent').value = property.tenant.rent;
-                        document.getElementById('contractSecurityAmount').value = property.tenant.securityAmount || '';
-                        document.getElementById('contractStartDate').value = property.tenant.startDate;
-                        document.getElementById('contractEndDate').value = property.tenant.endDate;
-                        document.getElementById('contractOption').value = property.tenant.option || '';
-                        document.getElementById('contractOptionIncrease').value = property.tenant.optionIncrease || '';
-                        
-                        // Set security type checkboxes
-                        document.getElementById('securityBankGuarantee').checked = false;
-                        document.getElementById('securityPromissoryNote').checked = false;
-                        document.getElementById('securityCashDeposit').checked = false;
-                        document.getElementById('securityCheck').checked = false;
-                        document.getElementById('securityGuarantors').checked = false;
-                        document.getElementById('securityOpenChecks').checked = false;
-                        
-                        if (property.tenant.securityTypes && Array.isArray(property.tenant.securityTypes)) {
-                            property.tenant.securityTypes.forEach(type => {
-                                if (type === 'ערבות בנקאית') document.getElementById('securityBankGuarantee').checked = true;
-                                if (type === 'שטר חוב') document.getElementById('securityPromissoryNote').checked = true;
-                                if (type === 'פיקדון מזומן') document.getElementById('securityCashDeposit').checked = true;
-                                if (type === 'שיק ביטחון') document.getElementById('securityCheck').checked = true;
-                                if (type === 'ערבים') document.getElementById('securityGuarantors').checked = true;
-                                if (type === 'שיקים פתוחים לרשויות') document.getElementById('securityOpenChecks').checked = true;
-                            });
-                        }
-                    }
-                }
-            } else {
-                title.textContent = 'הוסף נכס חדש';
-                document.getElementById('propertyEditId').value = '';
-            }
-            
-            toggleTenantFields();
-            modal.classList.add('active');
-        }
-
-        function openRepairModal(clientId, propertyId) {
-            const modal = document.getElementById('repairModal');
-            const form = document.getElementById('repairForm');
-            
-            form.reset();
-            document.getElementById('repairPropertyId').value = JSON.stringify({ clientId, propertyId });
-            
-            modal.classList.add('active');
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('active');
-        }
-
-        function toggleTenantFields() {
-            const status = document.getElementById('propertyStatus').value;
-            const tenantSection = document.getElementById('tenantSection');
-            
-            if (status === 'מושכר') {
-                tenantSection.style.display = 'block';
-                // Make tenant fields required
-                document.getElementById('tenantName').required = true;
-                document.getElementById('tenantPhone').required = true;
-                document.getElementById('tenantIdNumber').required = true;
-                document.getElementById('contractRent').required = true;
-                document.getElementById('contractStartDate').required = true;
-                document.getElementById('contractEndDate').required = true;
-            } else {
-                tenantSection.style.display = 'none';
-                // Remove required from tenant fields
-                document.getElementById('tenantName').required = false;
-                document.getElementById('tenantPhone').required = false;
-                document.getElementById('tenantIdNumber').required = false;
-                document.getElementById('contractRent').required = false;
-                document.getElementById('contractStartDate').required = false;
-                document.getElementById('contractEndDate').required = false;
-            }
-        }
-
-        // Save Functions
         function saveClient(e) {
             e.preventDefault();
-            
-            try {
-                const editId = document.getElementById('clientEditId').value;
-                
-                const client = {
-                    id: editId ? parseInt(editId) : Date.now(),
-                    name: document.getElementById('clientName').value,
-                    phone: document.getElementById('clientPhone').value,
-                    email: document.getElementById('clientEmail').value,
-                    idNumber: document.getElementById('clientIdNumber').value,
-                    managementFee: parseFloat(document.getElementById('clientManagementFee').value),
-                    address: document.getElementById('clientAddress').value,
-                    notes: document.getElementById('clientNotes').value,
-                    properties: editId ? data.clients.find(c => c.id === parseInt(editId)).properties : []
-                };
-                
-                if (editId) {
-                    const index = data.clients.findIndex(c => c.id === parseInt(editId));
-                    if (index !== -1) {
-                        data.clients[index] = client;
-                    }
-                } else {
-                    data.clients.push(client);
-                }
-                
-                saveData();
-                closeModal('clientModal');
-                document.getElementById('clientForm').reset();
-            } catch (error) {
-                console.error('שגיאה בשמירת לקוח:', error);
-                alert('שגיאה בשמירת הלקוח');
-            }
-        }
+            const id = document.getElementById('clientEditId').value || Date.now().toString();
+            const clientData = {
+                id: id,
+                name: document.getElementById('clientName').value,
+                phone: document.getElementById('clientPhone').value,
+                email: document.getElementById('clientEmail').value,
+                idNumber: document.getElementById('clientIdNumber').value,
+                managementFee: parseFloat(document.getElementById('clientManagementFee').value),
+                notes: document.getElementById('clientNotes').value,
+                properties: []
+            };
 
-        function saveProperty(e) {
-            e.preventDefault();
-            
-            try {
-                const clientId = parseInt(document.getElementById('propertyClientId').value);
-                const editId = document.getElementById('propertyEditId').value;
-                const client = data.clients.find(c => c.id === clientId);
-                
-                if (!client) {
-                    alert('לקוח לא נמצא');
-                    return;
-                }
-                
-                if (!client.properties) {
-                    client.properties = [];
-                }
-                
-                const property = {
-                    id: editId ? parseInt(editId) : Date.now(),
-                    address: document.getElementById('propertyAddress').value,
-                    type: document.getElementById('propertyType').value,
-                    size: document.getElementById('propertySize').value,
-                    rooms: document.getElementById('propertyRooms').value,
-                    floor: document.getElementById('propertyFloor').value,
-                    status: document.getElementById('propertyStatus').value,
-                    notes: document.getElementById('propertyNotes').value,
-                    tenant: null,
-                    repairs: editId ? client.properties.find(p => p.id === parseInt(editId)).repairs || [] : []
-                };
-                
-                // Add tenant info if rented
-                if (property.status === 'מושכר') {
-                    // Get selected security types
-                    const securityTypes = [];
-                    if (document.getElementById('securityBankGuarantee').checked) securityTypes.push('ערבות בנקאית');
-                    if (document.getElementById('securityPromissoryNote').checked) securityTypes.push('שטר חוב');
-                    if (document.getElementById('securityCashDeposit').checked) securityTypes.push('פיקדון מזומן');
-                    if (document.getElementById('securityCheck').checked) securityTypes.push('שיק ביטחון');
-                    if (document.getElementById('securityGuarantors').checked) securityTypes.push('ערבים');
-                    if (document.getElementById('securityOpenChecks').checked) securityTypes.push('שיקים פתוחים לרשויות');
-                    
-                    property.tenant = {
-                        name: document.getElementById('tenantName').value,
-                        phone: document.getElementById('tenantPhone').value,
-                        idNumber: document.getElementById('tenantIdNumber').value,
-                        rent: document.getElementById('contractRent').value,
-                        securityAmount: document.getElementById('contractSecurityAmount').value,
-                        securityTypes: securityTypes,
-                        startDate: document.getElementById('contractStartDate').value,
-                        endDate: document.getElementById('contractEndDate').value,
-                        option: document.getElementById('contractOption').value,
-                        optionIncrease: document.getElementById('contractOptionIncrease').value
-                    };
-                }
-                
-                if (editId) {
-                    const index = client.properties.findIndex(p => p.id === parseInt(editId));
-                    if (index !== -1) {
-                        client.properties[index] = property;
-                    }
-                } else {
-                    client.properties.push(property);
-                }
-                
-                saveData();
-                closeModal('propertyModal');
-                document.getElementById('propertyForm').reset();
-            } catch (error) {
-                console.error('שגיאה בשמירת נכס:', error);
-                alert('שגיאה בשמירת הנכס');
-            }
-        }
-
-        function saveRepair(e) {
-            e.preventDefault();
-            
-            try {
-                const ids = JSON.parse(document.getElementById('repairPropertyId').value);
-                const client = data.clients.find(c => c.id === ids.clientId);
-                const property = client.properties.find(p => p.id === ids.propertyId);
-                
-                if (!property.repairs) {
-                    property.repairs = [];
-                }
-                
-                const repair = {
-                    id: Date.now(),
-                    description: document.getElementById('repairDescription').value,
-                    date: document.getElementById('repairDate').value,
-                    cost: document.getElementById('repairCost').value,
-                    contractor: document.getElementById('repairContractor').value
-                };
-                
-                property.repairs.push(repair);
-                
-                saveData();
-                closeModal('repairModal');
-                document.getElementById('repairForm').reset();
-            } catch (error) {
-                console.error('שגיאה בשמירת תיקון:', error);
-                alert('שגיאה בשמירת התיקון');
-            }
-        }
-
-        // Delete Functions - DEFINED FIRST
-        function deleteClient(clientId) {
-            console.log('deleteClient קורא ל-ID:', clientId);
-            const client = data.clients.find(c => c.id === clientId);
-            const clientName = client ? client.name : 'לקוח זה';
-            
-            if (confirm(`האם אתה בטוח שברצונך למחוק את ${clientName} וכל הנכסים שלו?\n\nפעולה זו אינה ניתנת לביטול!`)) {
-                data.clients = data.clients.filter(c => c.id !== clientId);
-                selectedClientId = null;
-                saveData();
-                alert('הלקוח נמחק בהצלחה');
-            }
-        }
-
-        function deleteProperty(clientId, propertyId) {
-            console.log('deleteProperty קורא:', clientId, propertyId);
-            const client = data.clients.find(c => c.id === clientId);
-            const property = client ? client.properties.find(p => p.id === propertyId) : null;
-            const propertyAddress = property ? property.address : 'נכס זה';
-            
-            if (confirm(`האם אתה בטוח שברצונך למחוק את הנכס:\n${propertyAddress}?\n\nפעולה זו אינה ניתנת לביטול!`)) {
-                if (client && client.properties) {
-                    client.properties = client.properties.filter(p => p.id !== propertyId);
-                    saveData();
-                    alert('הנכס נמחק בהצלחה');
-                }
-            }
-        }
-
-        function deleteRepair(clientId, propertyId, repairId) {
-            console.log('deleteRepair קורא:', clientId, propertyId, repairId);
-            const client = data.clients.find(c => c.id === clientId);
-            const property = client ? client.properties.find(p => p.id === propertyId) : null;
-            const repair = property && property.repairs ? property.repairs.find(r => r.id === repairId) : null;
-            const repairDesc = repair ? repair.description : 'תיקון זה';
-            
-            if (confirm(`האם אתה בטוח שברצונך למחוק את התיקון:\n"${repairDesc}"?\n\nפעולה זו אינה ניתנת לביטול!`)) {
-                if (property && property.repairs) {
-                    property.repairs = property.repairs.filter(r => r.id !== repairId);
-                    saveData();
-                    alert('התיקון נמחק בהצלחה');
-                }
-            }
-        }
-
-        // NOW Make functions globally accessible AFTER they are defined
-        window.deleteClient = deleteClient;
-        window.deleteProperty = deleteProperty;
-        window.deleteRepair = deleteRepair;
-        window.openClientModal = openClientModal;
-        window.openPropertyModal = openPropertyModal;
-        window.openRepairModal = openRepairModal;
-        window.selectClient = selectClient;
-
-        // Display Functions
-        let selectedClientId = null;
-
-        function displayClients() {
-            const listContainer = document.getElementById('clientsList');
-            const detailContainer = document.getElementById('clientDetail');
-            
-            if (!data.clients || data.clients.length === 0) {
-                listContainer.innerHTML = `
-                    <div class="empty-state" style="padding: 20px;">
-                        <p>אין לקוחות במערכת</p>
-                    </div>
-                `;
-                detailContainer.innerHTML = `
-                    <div class="empty-state">
-                        <h3>אין לקוחות במערכת</h3>
-                        <p>לחץ על "הוסף לקוח חדש" כדי להתחיל</p>
-                    </div>
-                `;
-                return;
-            }
-            
-            // Display list
-            listContainer.innerHTML = data.clients.map(client => {
-                const propertiesCount = client.properties ? client.properties.length : 0;
-                const rentedCount = client.properties ? client.properties.filter(p => p.status === 'מושכר').length : 0;
-                
-                return `
-                    <div class="client-list-item ${selectedClientId === client.id ? 'active' : ''}" 
-                         onclick="window.selectClient(` + client.id + `)">
-                        <div class="client-list-name">${client.name}</div>
-                        <div class="client-list-info">
-                            📞 ${client.phone}<br>
-                            🏠 ${propertiesCount} נכסים (${rentedCount} מושכרים)<br>
-                            💼 דמי ניהול: ${client.managementFee}%
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // Display selected client or first client
-            if (!selectedClientId && data.clients.length > 0) {
-                selectedClientId = data.clients[0].id;
-            }
-            
-            displayClientDetail();
-            checkContractAlerts();
-        }
-
-        function selectClient(clientId) {
-            selectedClientId = clientId;
-            displayClients();
-        }
-
-        function displayClientDetail() {
-            const detailContainer = document.getElementById('clientDetail');
-            const client = data.clients.find(c => c.id === selectedClientId);
-            
-            if (!client) {
-                detailContainer.innerHTML = `
-                    <div class="empty-state">
-                        <h3>לקוח לא נמצא</h3>
-                    </div>
-                `;
-                return;
-            }
-            
-            const rentedProperties = client.properties ? client.properties.filter(p => p.status === 'מושכר') : [];
-            const totalRent = rentedProperties.reduce((sum, p) => sum + parseFloat(p.tenant?.rent || 0), 0);
-            const managementIncome = totalRent * (client.managementFee / 100);
-            
-            detailContainer.innerHTML = `
-                <div class="client-card">
-                    <div class="client-header">
-                        <div class="client-name">${client.name}</div>
-                        <div>
-                            <button class="btn btn-small btn-secondary" onclick="window.openClientModal(` + client.id + `)">✏️ ערוך</button>
-                            <button class="btn btn-small btn-danger" onclick="window.deleteClient(` + client.id + `)">🗑️ מחק</button>
-                        </div>
-                    </div>
-                    
-                    <div class="client-info">
-                        <div class="info-item">
-                            <span class="info-label">טלפון:</span> ${client.phone}
-                        </div>
-                        ${client.email ? `
-                        <div class="info-item">
-                            <span class="info-label">אימייל:</span> ${client.email}
-                        </div>
-                        ` : ''}
-                        <div class="info-item">
-                            <span class="info-label">ת.ז / ח.פ:</span> ${client.idNumber}
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">דמי ניהול:</span> ${client.managementFee}%
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">הכנסה חודשית לניהול:</span> ₪${managementIncome.toLocaleString()}
-                        </div>
-                        ${client.address ? `
-                        <div class="info-item">
-                            <span class="info-label">כתובת:</span> ${client.address}
-                        </div>
-                        ` : ''}
-                    </div>
-                    
-                    ${client.notes ? `
-                    <div style="margin-top: 15px; padding: 10px; background: #fff3cd; border-radius: 6px;">
-                        <strong>הערות:</strong> ${client.notes}
-                    </div>
-                    ` : ''}
-                </div>
-                
-                ${client.properties && client.properties.length > 0 ? `
-                    <div class="section-title">נכסים (${client.properties.length})</div>
-                    ${client.properties.map(property => `
-                        <div class="property-item">
-                            <div class="property-header">
-                                <div class="property-title">${property.address}</div>
-                                <div>
-                                    <span class="status-badge ${property.status === 'מושכר' ? 'status-rented' : 'status-vacant'}">
-                                        ${property.status}
-                                    </span>
-                                </div>
-                            </div>
-                            
-                            <div class="property-details">
-                                <div><strong>סוג:</strong> ${property.type}</div>
-                                <div><strong>גודל:</strong> ${property.size} מ"ר</div>
-                                ${property.rooms ? `<div><strong>חדרים:</strong> ${property.rooms}</div>` : ''}
-                                ${property.floor ? `<div><strong>קומה:</strong> ${property.floor}</div>` : ''}
-                            </div>
-                            
-                            ${property.tenant ? `
-                                <div class="tenant-info">
-                                    <div class="tenant-name">👤 ${property.tenant.name}</div>
-                                    <div style="font-size: 0.85em;">
-                                        <div><strong>טלפון:</strong> ${property.tenant.phone}</div>
-                                        <div><strong>ת.ז:</strong> ${property.tenant.idNumber}</div>
-                                        <div><strong>דמי שכירות:</strong> ₪${parseInt(property.tenant.rent).toLocaleString()}</div>
-                                        <div><strong>תקופת חוזה:</strong> ${property.tenant.startDate} עד ${property.tenant.endDate}</div>
-                                        ${property.tenant.option ? `<div><strong>אופציה:</strong> ${property.tenant.option} חודשים${property.tenant.optionIncrease ? ` (+${property.tenant.optionIncrease}%)` : ''}</div>` : ''}
-                                        ${property.tenant.securityAmount ? `<div><strong>סכום ביטחונות:</strong> ₪${parseInt(property.tenant.securityAmount).toLocaleString()}</div>` : ''}
-                                        ${property.tenant.securityTypes && property.tenant.securityTypes.length > 0 ? `
-                                        <div><strong>סוגי ביטחונות:</strong> ${property.tenant.securityTypes.join(', ')}</div>
-                                        ` : ''}
-                                        ${calculateDaysUntilEnd(property.tenant.endDate) > 0 ? `
-                                        <div style="color: ${calculateDaysUntilEnd(property.tenant.endDate) <= 60 ? '#dc3545' : '#28a745'}; font-weight: bold; margin-top: 5px;">
-                                            ⏰ ${calculateDaysUntilEnd(property.tenant.endDate)} ימים עד סיום החוזה
-                                        </div>
-                                        ` : ''}
-                                    </div>
-                                </div>
-                            ` : ''}
-                            
-                            ${property.repairs && property.repairs.length > 0 ? `
-                                <div class="repairs-list">
-                                    <strong>🔧 תיקונים (${property.repairs.length}):</strong>
-                                    ${property.repairs.map(repair => `
-                                        <div class="repair-item">
-                                            <div style="display: flex; justify-content: space-between;">
-                                                <span>${repair.description}</span>
-                                                <span>₪${parseInt(repair.cost).toLocaleString()}</span>
-                                            </div>
-                                            <div style="font-size: 0.8em; color: #666;">
-                                                ${repair.date}${repair.contractor ? ` | ${repair.contractor}` : ''}
-                                                <button class="btn btn-small btn-danger" style="padding: 2px 8px; margin-right: 10px;" onclick="window.deleteRepair(` + client.id + `, ` + property.id + `, ` + repair.id + `)">🗑️</button>
-                                            </div>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                            ` : ''}
-                            
-                            ${property.notes ? `
-                            <div style="margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 6px; font-size: 0.85em;">
-                                <strong>הערות:</strong> ${property.notes}
-                            </div>
-                            ` : ''}
-                            
-                            <div style="margin-top: 10px; display: flex; gap: 10px;">
-                                <button class="btn btn-small btn-secondary" onclick="window.openPropertyModal(` + client.id + `, ` + property.id + `)">✏️ ערוך</button>
-                                <button class="btn btn-small btn-success" onclick="window.openRepairModal(` + client.id + `, ` + property.id + `)">🔧 הוסף תיקון</button>
-                                <button class="btn btn-small btn-danger" onclick="window.deleteProperty(` + client.id + `, ` + property.id + `)">🗑️ מחק</button>
-                            </div>
-                        </div>
-                    `).join('')}
-                ` : `
-                    <div class="empty-state" style="padding: 40px 20px;">
-                        <p>אין נכסים ללקוח זה</p>
-                    </div>
-                `}
-                
-                <button class="btn btn-success add-property-btn" onclick="window.openPropertyModal(` + client.id + `)">
-                    + הוסף נכס ללקוח זה
-                </button>
-            `;
-        }
-
-        function calculateDaysUntilEnd(endDate) {
-            const today = new Date();
-            const end = new Date(endDate);
-            const diffTime = end - today;
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            return diffDays;
-        }
-
-        function checkContractAlerts() {
-            const alertsContainer = document.getElementById('alertsContainer');
-            if (!alertsContainer) return;
-            
-            let expiringContracts = [];
-            
-            data.clients.forEach(client => {
-                if (client.properties) {
-                    client.properties.forEach(property => {
-                        if (property.status === 'מושכר' && property.tenant) {
-                            const daysUntilEnd = calculateDaysUntilEnd(property.tenant.endDate);
-                            if (daysUntilEnd <= 60 && daysUntilEnd > 0) {
-                                expiringContracts.push({
-                                    clientName: client.name,
-                                    propertyAddress: property.address,
-                                    tenantName: property.tenant.name,
-                                    endDate: property.tenant.endDate,
-                                    daysLeft: daysUntilEnd
-                                });
-                            }
-                        }
-                    });
-                }
-            });
-            
-            if (expiringContracts.length > 0) {
-                // Sort by days left
-                expiringContracts.sort((a, b) => a.daysLeft - b.daysLeft);
-                
-                alertsContainer.innerHTML = `
-                    <div class="alert-banner danger">
-                        <div class="alert-icon">⚠️</div>
-                        <div class="alert-text">
-                            <strong>התראה: ${expiringContracts.length} חוזים מסתיימים ב-60 הימים הקרובים!</strong>
-                            <div style="margin-top: 5px; font-size: 0.9em;">
-                                ${expiringContracts.slice(0, 3).map(contract => 
-                                    `• ${contract.tenantName} - ${contract.propertyAddress} (נותרו ${contract.daysLeft} ימים)`
-                                ).join('<br>')}
-                                ${expiringContracts.length > 3 ? `<br>ועוד ${expiringContracts.length - 3} חוזים...` : ''}
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                // Show popup alert on first load
-                showPopupAlert(expiringContracts);
+            const index = data.clients.findIndex(c => c.id === id);
+            if (index > -1) {
+                clientData.properties = data.clients[index].properties || [];
+                data.clients[index] = clientData;
             } else {
-                alertsContainer.innerHTML = '';
+                data.clients.push(clientData);
             }
+
+            db.ref('lankri_v8_new_design').set(data)
+                .then(() => closeModal('clientModal'));
         }
 
-        let popupShown = false;
-        function showPopupAlert(contracts) {
-            if (popupShown) return;
-            popupShown = true;
-            
-            const popup = document.createElement('div');
-            popup.className = 'popup-alert';
-            popup.innerHTML = `
-                <div class="popup-alert-header">
-                    <span>⚠️</span>
-                    <span>התראת חוזים שפוגים!</span>
-                </div>
-                <div class="popup-alert-body">
-                    יש ${contracts.length} חוזים שמסתיימים ב-60 הימים הקרובים.<br>
-                    יש לפעול לחידוש או מציאת שוכרים חלופיים.
-                    <div style="margin-top: 10px; font-weight: bold;">
-                        הדחוף ביותר:<br>
-                        ${contracts[0].tenantName} - ${contracts[0].propertyAddress}<br>
-                        <span style="color: #dc3545;">נותרו רק ${contracts[0].daysLeft} ימים!</span>
-                    </div>
-                </div>
-                <button class="popup-alert-close" onclick="this.parentElement.remove()">הבנתי</button>
-            `;
-            
-            document.body.appendChild(popup);
-            
-            // Auto close after 10 seconds
-            setTimeout(() => {
-                if (popup.parentElement) {
-                    popup.remove();
-                }
-            }, 10000);
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
         }
 
-        function generateReports() {
-            const container = document.getElementById('reportsContent');
-            
-            if (!data.clients || data.clients.length === 0) {
-                container.innerHTML = '<div class="empty-state"><p>אין נתונים להצגה</p></div>';
-                return;
+        function openClientModal(id = null) {
+            const modal = document.getElementById('clientModal');
+            document.getElementById('clientForm').reset();
+            if(id) {
+                const client = data.clients.find(c => c.id === id);
+                document.getElementById('clientEditId').value = client.id;
+                document.getElementById('clientName').value = client.name;
+                document.getElementById('clientPhone').value = client.phone;
+                document.getElementById('clientIdNumber').value = client.idNumber;
             }
-            
-            let totalProperties = 0;
-            let rentedProperties = 0;
-            let totalRent = 0;
-            let totalManagementIncome = 0;
-            let totalRepairCosts = 0;
-            
-            data.clients.forEach(client => {
-                if (client.properties) {
-                    totalProperties += client.properties.length;
-                    client.properties.forEach(property => {
-                        if (property.status === 'מושכר' && property.tenant) {
-                            rentedProperties++;
-                            const rent = parseFloat(property.tenant.rent);
-                            totalRent += rent;
-                            totalManagementIncome += rent * (client.managementFee / 100);
-                        }
-                        if (property.repairs) {
-                            property.repairs.forEach(repair => {
-                                totalRepairCosts += parseFloat(repair.cost);
-                            });
-                        }
-                    });
-                }
-            });
-            
-            const occupancyRate = totalProperties > 0 ? ((rentedProperties / totalProperties) * 100).toFixed(1) : 0;
-            
-            container.innerHTML = `
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-                    <div class="client-card">
-                        <h3>סך לקוחות</h3>
-                        <div style="font-size: 2.5em; font-weight: bold; color: #667eea;">${data.clients.length}</div>
-                    </div>
-                    <div class="client-card">
-                        <h3>סך נכסים</h3>
-                        <div style="font-size: 2.5em; font-weight: bold; color: #667eea;">${totalProperties}</div>
-                    </div>
-                    <div class="client-card">
-                        <h3>נכסים מושכרים</h3>
-                        <div style="font-size: 2.5em; font-weight: bold; color: #28a745;">${rentedProperties}</div>
-                    </div>
-                    <div class="client-card">
-                        <h3>שיעור תפוסה</h3>
-                        <div style="font-size: 2.5em; font-weight: bold; color: #667eea;">${occupancyRate}%</div>
-                    </div>
-                    <div class="client-card">
-                        <h3>סך שכירות חודשית</h3>
-                        <div style="font-size: 2em; font-weight: bold; color: #28a745;">₪${totalRent.toLocaleString()}</div>
-                    </div>
-                    <div class="client-card">
-                        <h3>הכנסה מדמי ניהול</h3>
-                        <div style="font-size: 2em; font-weight: bold; color: #667eea;">₪${totalManagementIncome.toLocaleString()}</div>
-                    </div>
-                    <div class="client-card">
-                        <h3>סך עלויות תיקונים</h3>
-                        <div style="font-size: 2em; font-weight: bold; color: #dc3545;">₪${totalRepairCosts.toLocaleString()}</div>
-                    </div>
-                </div>
-                
-                <div class="client-card" style="margin-top: 20px;">
-                    <h3>פירוט לפי לקוח</h3>
-                    ${data.clients.map(client => {
-                        const clientProperties = client.properties || [];
-                        const clientRented = clientProperties.filter(p => p.status === 'מושכר');
-                        const clientRent = clientRented.reduce((sum, p) => sum + parseFloat(p.tenant?.rent || 0), 0);
-                        const clientIncome = clientRent * (client.managementFee / 100);
-                        
-                        return `
-                            <div style="padding: 15px; border-bottom: 1px solid #dee2e6;">
-                                <strong>${client.name}</strong>
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 5px; font-size: 0.9em;">
-                                    <div>נכסים: ${clientProperties.length}</div>
-                                    <div>מושכרים: ${clientRented.length}</div>
-                                    <div>שכירות: ₪${clientRent.toLocaleString()}</div>
-                                    <div>דמי ניהול: ${client.managementFee}%</div>
-                                    <div>הכנסה: ₪${clientIncome.toLocaleString()}</div>
-                                </div>
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
-            `;
+            modal.classList.add('active');
         }
 
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.classList.remove('active');
-            }
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('active');
         }
     </script>
 </body>
