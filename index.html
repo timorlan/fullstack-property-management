@@ -8,7 +8,6 @@
     <link rel="manifest" id="manifest-placeholder">
     
     <style>
-        /* שילוב העיצוב החדש והנקי על המבנה הקיים */
         :root {
             --lankri-blue: #2c5aa0;
             --lankri-light: #4a7bc8;
@@ -18,7 +17,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--bg-gradient);
-            margin: 0; padding: 15px; min-height: 100vh;
+            margin: 0; padding: 10px; min-height: 100vh;
         }
 
         .container {
@@ -27,24 +26,23 @@
             background: white;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 92vh;
+            height: 95vh;
         }
 
         .header {
-            background: white;
             padding: 15px 25px;
+            background: white;
+            border-bottom: 3px solid var(--lankri-blue);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--lankri-blue);
         }
 
         .nav-tabs {
             display: flex;
-            background: #f1f3f5;
+            background: #f8f9fa;
             border-bottom: 1px solid #dee2e6;
         }
 
@@ -54,144 +52,124 @@
             border: none;
             background: none;
             font-weight: bold;
-            color: #555;
+            color: #666;
             transition: 0.3s;
         }
 
         .nav-tab.active {
             color: var(--lankri-blue);
-            background: white;
             border-bottom: 3px solid var(--lankri-blue);
+            background: white;
         }
 
-        /* מבנה הרשימה והפרטים מהקוד המקורי */
+        /* ניהול לקוחות ונכסים */
         .clients-layout {
             display: grid;
-            grid-template-columns: 320px 1fr;
+            grid-template-columns: 300px 1fr;
             flex-grow: 1;
             overflow: hidden;
         }
 
         .clients-list {
-            border-left: 1px solid #eee;
-            background: #f8f9fa;
+            background: #f1f3f5;
+            border-left: 1px solid #dee2e6;
             overflow-y: auto;
             padding: 10px;
         }
 
-        .client-list-item {
+        .client-item {
             padding: 12px;
             background: white;
-            border-radius: 8px;
             margin-bottom: 8px;
+            border-radius: 8px;
             cursor: pointer;
-            border: 1px solid #eee;
-            transition: 0.2s;
+            border: 1px solid #ddd;
         }
 
-        .client-list-item.active {
+        .client-item.active {
             background: var(--lankri-blue);
             color: white;
-            border-color: var(--lankri-blue);
         }
 
-        .client-detail {
+        .details-pane {
             padding: 20px;
             overflow-y: auto;
-            background: white;
         }
 
-        /* סגנונות כפתורים ומודלים */
-        .btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .btn-primary { background: var(--lankri-blue); color: white; }
-        
-        .property-card {
-            border: 1px solid #e0e0e0;
+        .card {
+            border: 1px solid #ddd;
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 15px;
             background: #fff;
         }
 
+        .badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .badge-rented { background: #d4edda; color: #155724; }
+        .badge-vacant { background: #f8d7da; color: #721c24; }
+
+        .btn { padding: 8px 15px; border-radius: 5px; border: none; cursor: pointer; font-weight: bold; }
+        .btn-primary { background: var(--lankri-blue); color: white; }
+
+        /* מודלים */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.5);
             z-index: 1000;
             align-items: center; justify-content: center;
         }
-
         .modal.active { display: flex; }
+        .modal-content { background: white; padding: 25px; border-radius: 12px; width: 90%; max-width: 500px; }
 
-        .modal-content {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 550px;
-            max-height: 85vh;
-            overflow-y: auto;
-        }
+        input, select, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="header">
-            <h2 style="margin: 0; color: var(--lankri-blue);">LANKRI GROUP</h2>
-            <div id="connectionStatus" style="font-size: 0.8em; color: green;">● מחובר ל-Database</div>
+            <h2 style="margin:0; color: var(--lankri-blue);">LANKRI GROUP</h2>
+            <div id="status" style="font-size: 0.8em; color: green;">● מחובר לענן</div>
         </div>
 
         <div class="nav-tabs">
-            <button class="nav-tab active" onclick="switchTab('clients')">👥 לקוחות ונכסים</button>
-            <button class="nav-tab" onclick="switchTab('reports')">📊 דוחות והכנסות</button>
+            <button class="nav-tab active" onclick="switchTab('tab-clients')">👥 לקוחות ונכסים</button>
+            <button class="nav-tab" onclick="switchTab('tab-reports')">📊 דוח דמי ניהול</button>
         </div>
 
-        <div id="clients" class="tab-content active" style="height: 100%; display: flex; flex-direction: column;">
+        <div id="tab-clients" class="tab-content" style="height: 100%;">
             <div class="clients-layout">
                 <div class="clients-list">
-                    <button class="btn btn-primary" style="width: 100%; margin-bottom: 15px;" onclick="openClientModal()">+ לקוח חדש</button>
-                    <div id="clientsListContainer">
-                        </div>
+                    <button class="btn btn-primary" style="width:100%; margin-bottom:10px;" onclick="openModal('clientModal')">+ לקוח חדש</button>
+                    <div id="listContainer"></div>
                 </div>
-                <div id="clientDetailContainer" class="client-detail">
-                    <div style="text-align: center; margin-top: 50px; color: #888;">
-                        בחר לקוח מהרשימה לצפייה בנכסים, שוכרים ותקלות
-                    </div>
+                <div id="detailsContainer" class="details-pane">
+                    <div style="text-align:center; color:#999; margin-top:50px;">בחר לקוח כדי לצפות בפרטים</div>
                 </div>
             </div>
         </div>
 
-        <div id="reports" class="tab-content" style="display: none; padding: 25px;">
-            <div id="reportsContent">
-                </div>
+        <div id="tab-reports" class="tab-content" style="display:none; padding:25px;">
+            <h3>סיכום הכנסות ודמי ניהול</h3>
+            <div id="reportsContainer"></div>
         </div>
     </div>
 
     <div id="clientModal" class="modal">
         <div class="modal-content">
             <h3>פרטי לקוח</h3>
-            <form onsubmit="saveClient(event)">
-                <input type="hidden" id="clientId">
-                <div style="margin-bottom:10px;">
-                    <label>שם לקוח:</label>
-                    <input type="text" id="clientName" required style="width:100%; padding:8px;">
-                </div>
-                <div style="margin-bottom:10px;">
-                    <label>דמי ניהול (%):</label>
-                    <input type="number" id="clientFee" step="0.1" required style="width:100%; padding:8px;">
-                </div>
-                <button type="submit" class="btn btn-primary">שמור</button>
-                <button type="button" class="btn" onclick="closeModal('clientModal')">ביטול</button>
-            </form>
+            <input type="text" id="cName" placeholder="שם הלקוח">
+            <input type="number" id="cFee" placeholder="דמי ניהול (%)" step="0.1">
+            <button class="btn btn-primary" onclick="saveClient()">שמור</button>
+            <button class="btn" onclick="closeModal('clientModal')">ביטול</button>
         </div>
     </div>
 
@@ -199,7 +177,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 
     <script>
-        // הגדרות FIREBASE (העתק מדויק מהקובץ שלך)
+        // הגדרות Firebase מהקובץ המקורי שלך
         const firebaseConfig = {
             apiKey: "AIzaSyB8lyZhWRLKLBFtrfc5ZeKIAdxqHL71Yhg",
             authDomain: "lankri-group-management.firebaseapp.com",
@@ -210,60 +188,58 @@
 
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
-        const DB_PATH = 'lankri_v8_new_design';
+        const DB_REF = 'lankri_v8_production'; // נתיב הנתונים שלך
 
-        let appData = { clients: [] };
-        let currentClientId = null;
+        let data = { clients: [] };
+        let selectedId = null;
 
-        // האזנה לשינויים ב-Database
-        db.ref(DB_PATH).on('value', (snapshot) => {
-            const val = snapshot.val();
-            appData = val || { clients: [] };
-            renderClientsList();
-            if (currentClientId) renderClientDetails();
+        // סנכרון נתונים
+        db.ref(DB_REF).on('value', (snap) => {
+            data = snap.val() || { clients: [] };
+            renderList();
+            if(selectedId) renderDetails();
             renderReports();
         });
 
-        // פונקציות הליבה (פונקציות ה-Logic שנלקחו מהמקור)
-        
-        function renderClientsList() {
-            const container = document.getElementById('clientsListContainer');
-            container.innerHTML = appData.clients.map(client => `
-                <div class="client-list-item ${currentClientId === client.id ? 'active' : ''}" onclick="selectClient('${client.id}')">
-                    <strong>${client.name}</strong><br>
-                    <small>דמי ניהול: ${client.managementFee || client.fee}%</small>
+        function renderList() {
+            const container = document.getElementById('listContainer');
+            container.innerHTML = data.clients.map(c => `
+                <div class="client-item ${selectedId === c.id ? 'active' : ''}" onclick="selectClient('${c.id}')">
+                    <strong>${c.name}</strong><br>
+                    <small>דמי ניהול: ${c.managementFee}%</small>
                 </div>
             `).join('');
         }
 
         function selectClient(id) {
-            currentClientId = id;
-            renderClientsList();
-            renderClientDetails();
+            selectedId = id;
+            renderList();
+            renderDetails();
         }
 
-        function renderClientDetails() {
-            const client = appData.clients.find(c => c.id === currentClientId);
-            if (!client) return;
-
-            const container = document.getElementById('clientDetailContainer');
-            // כאן מוזרק כל המבנה של הנכסים והתקלות בדיוק כמו במקור
+        function renderDetails() {
+            const client = data.clients.find(c => c.id === selectedId);
+            const container = document.getElementById('detailsContainer');
+            
             container.innerHTML = `
-                <div class="client-header">
-                    <h3>${client.name}</h3>
-                    <button class="btn btn-primary btn-small" onclick="openPropertyModal()">+ הוסף נכס</button>
+                <div style="display:flex; justify-content:space-between;">
+                    <h2>${client.name}</h2>
+                    <button class="btn btn-primary" onclick="addProperty()">+ הוסף נכס</button>
                 </div>
-                <div class="properties-list">
-                    ${(client.properties || []).map((prop, idx) => `
-                        <div class="property-card">
-                            <h4>${prop.address} - <span style="color:blue">${prop.status}</span></h4>
-                            ${prop.tenant ? `
-                                <div style="background:#eef; padding:10px; border-radius:5px;">
-                                    <strong>שוכר: ${prop.tenant.name}</strong> | שכירות: ₪${prop.tenant.rent}
+                <div class="properties-grid">
+                    ${(client.properties || []).map((p, i) => `
+                        <div class="card">
+                            <div style="display:flex; justify-content:space-between;">
+                                <strong>${p.address}</strong>
+                                <span class="badge ${p.status === 'מושכר' ? 'badge-rented' : 'badge-vacant'}">${p.status}</span>
+                            </div>
+                            ${p.tenant ? `
+                                <div style="margin-top:10px; font-size:0.9em; background:#f8f9fa; padding:8px;">
+                                    👤 שוכר: ${p.tenant.name} | 💰 שכירות: ₪${p.tenant.rent}
                                 </div>
-                            ` : '<p>אין שוכר פעיל</p>'}
+                            ` : ''}
                             <div style="margin-top:10px;">
-                                <button class="btn btn-small" onclick="addRepair('${idx}')">🔧 דווח תקלה</button>
+                                <button class="btn btn-small" onclick="reportIssue(${i})">🔧 דווח תקלה</button>
                             </div>
                         </div>
                     `).join('')}
@@ -271,44 +247,43 @@
             `;
         }
 
-        // פונקציות ניווט
-        function switchTab(tabId) {
+        function renderReports() {
+            const container = document.getElementById('reportsContainer');
+            let totalMgmt = 0;
+            
+            let html = data.clients.map(c => {
+                let rent = (c.properties || [])
+                    .filter(p => p.status === 'מושכר')
+                    .reduce((sum, p) => sum + parseFloat(p.tenant?.rent || 0), 0);
+                let fee = rent * (c.managementFee / 100);
+                totalMgmt += fee;
+                
+                return `<div>${c.name}: ₪${fee.toLocaleString()}</div>`;
+            }).join('');
+
+            container.innerHTML = html + `<hr><h4>סה"כ דמי ניהול: ₪${totalMgmt.toLocaleString()}</h4>`;
+        }
+
+        function switchTab(id) {
             document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
             document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-            document.getElementById(tabId).style.display = 'block';
+            document.getElementById(id).style.display = 'block';
             event.target.classList.add('active');
         }
 
-        // עזרי מודלים
-        function openClientModal() { document.getElementById('clientModal').classList.add('active'); }
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-        function saveClient(e) {
-            e.preventDefault();
-            const newClient = {
+        function saveClient() {
+            const newC = {
                 id: Date.now().toString(),
-                name: document.getElementById('clientName').value,
-                fee: document.getElementById('clientFee').value,
+                name: document.getElementById('cName').value,
+                managementFee: document.getElementById('cFee').value,
                 properties: []
             };
-            appData.clients.push(newClient);
-            db.ref(DB_PATH).set(appData).then(() => closeModal('clientModal'));
+            data.clients.push(newC);
+            db.ref(DB_REF).set(data).then(() => closeModal('clientModal'));
         }
-
-        // דוחות (העתק מדויק של פונקציית החישוב מהמקור)
-        function renderReports() {
-            const reportsDiv = document.getElementById('reportsContent');
-            let totalIncome = 0;
-            appData.clients.forEach(c => {
-                (c.properties || []).forEach(p => {
-                    if (p.status === 'מושכר' && p.tenant) {
-                        totalIncome += (parseFloat(p.tenant.rent) * (parseFloat(c.managementFee || c.fee) / 100));
-                    }
-                });
-            });
-            reportsDiv.innerHTML = `<h3>סיכום דמי ניהול חודשיים: ₪${totalIncome.toLocaleString()}</h3>`;
-        }
-
     </script>
 </body>
 </html>
